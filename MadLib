@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Mad Lib</title>
+  <meta charset="utf-8">
+  <script>
+    window.onload = init;
+
+    function init() {
+    /*button to create statement when clicked*/
+      var button = document.getElementById("submit");
+      button.onclick = goMad;
+    }
+
+    function goMad() {
+    /*create variables*/
+      var words = [];
+      var inputs = document.getElementsByTagName("input");
+      /*define each word by its input*/
+      for(i=0;i<inputs.length;i++){words[i]=inputs[i].value}
+      var story = words[0] + "! he said " + words[1] + " as he jumped into his convertible " + words[2] + " and drove off with his " + words [3] + " wife.";
+/*define div and set output*/
+      var div = document.getElementById("story");
+      div.innerHTML = story;
+     }
+
+
+  </script>
+</head>
+<body>
+  <form>
+    <label for="exclamation">Exclamation:</label>
+    <input id="exclamation" type="text" size="20"> <br>
+    <label for="adverb">Adverb:</label>
+    <input id="adverb" type="text" size="20"><br>
+    <label for="noun">Noun:</label>
+    <input id="noun" type="text" size="20"><br>
+    <label for="adjective">Adjective:</label>     <input id="adjective" type="text" size="20"><br>
+    <input type="button" id="submit" value="Go Mad!">
+  </form>
+
+  <div id="story">
+  </div>
+
+</body>
+</html> 
