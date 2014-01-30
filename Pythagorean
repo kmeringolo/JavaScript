@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title> Functions </title>
+  <meta charset="utf-8">
+  <script>
+    window.onload = init;
+
+    function init() {
+      var button = document.getElementById("submit")
+      button.onclick = pythagoras;
+    }
+    
+    function pythagoras() {
+      var a, b, c;
+      a = document.getElementById("a").value;
+      a = parseFloat(a);
+      b = document.getElementById("b").value;    
+      b = parseFloat(b);  
+      c = Math.sqrt(a*a + b*b);
+      displayResult(a,b,c);
+    }
+    
+    function displayResult(a, b, c) {
+      var div = document.getElementById("result");
+      div.innerHTML = "Triangle: a = " + a + ", b = " + b + ", c = " + c;
+    }
+ </script>
+</head>
+<body>
+  <form>
+    <label for="a">Enter lengths for sides a: </label>
+    <input type="number" id="a" size="3">
+    <label for="b"> and b: </label>
+    <input type="number" id="b" size="3"> <br>
+    <input type="button" id="submit" value="Compute c!">
+  </form>
+  <div id="result">
+  </div>  
+</body>
+</html>
