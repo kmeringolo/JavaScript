@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Movie Objects</title>
+  <meta charset="utf-8">
+  <script>
+  
+    window.onload = init;
+    /*create movie construct*/
+    function Movie(title, year, genre, rating, showtimes) {
+      this.title = title;
+      this.year = year;
+      this.genre = genre;
+      this.rating = rating;
+      this.showtimes = showtimes;
+      
+      /*updateRating replaces this.rating with function parameter and returns it*/
+      this.updateRating = function(rate) {
+        this.rating = rate;
+        return rate;
+      };
+    }
+    
+      /*define each movie*/
+    function init() {    
+    var catchingFire = new Movie("Catching Fire", "2013", "action", "PG13", ["12:00", "2:30", "5:00"]);
+    var gravity = new Movie("Gravity", "2013", "Science Fiction", "R", ["1:15", "3:45", "7:00"]);
+    var topGun = new Movie("Top Gun", "1986", "action", "PG", ["2:00", "4:30"]);
+
+/*create loops for movies and times*/
+    var movieArray = [catchingFire, gravity, topGun];
+    for (var i = 0; i < movieArray.length; i++) {
+      var times = [movieArray[i].showtimes] 
+      for(j = 0; j < times.length; j++) {
+        var timing = times[j];
+        /*use .join to separate the values in the timing array*/
+        var timingList = timing.join('; ');
+      }
+      /*write what is to appear in div element as found by movies id*/
+      var div = document.getElementById("movies");
+      div.innerHTML = gravity.title + " is rated " + gravity.updateRating("G");
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <div id="movies">
+  </div>
+</body>
+</html>
